@@ -573,7 +573,7 @@ createRWrapperForSql <- function(sqlFilename,
 #' supportsJava8()
 #' @export
 supportsJava8 <- function() {
-  # return(FALSE)
+  rJava::.jinit()
   javaVersionText <- rJava::.jcall("java/lang/System", "S", "getProperty", "java.version")
   majorVersion <- as.integer(regmatches(
     javaVersionText,
